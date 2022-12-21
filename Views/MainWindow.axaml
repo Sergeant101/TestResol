@@ -13,17 +13,29 @@
     </Design.DataContext>
 
     <Grid>
+
         <ListBox
-            Items="{Binding MyItems}"
-            VirtualizationMode   = "Simple">
+            Items                   = "{Binding ColorBrushList}"
+            Width                   = "500"
+            HorizontalAlignment     = "Center"
+            VerticalAlignment       = "Center"
+            Background              = "LavenderBlush"
+            VirtualizationMode      = "Simple">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <VirtualizingStackPanel 
-                        Orientation = "Horizontal">
-
+                    <VirtualizingStackPanel Orientation = "Horizontal">
                     </VirtualizingStackPanel>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ScrollViewer>
+                       
+                            <Button Content = "{Binding}"/>
+                        
+                    </ScrollViewer>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 
