@@ -21,7 +21,9 @@
         </Style>
     </Window.Styles>
 
-    <Grid>
+    <StackPanel>
+        <TextBlock Text = "{Binding SelectedIndex}"/>
+
         <ListBox
             Items                                       = "{Binding ColorBrushList}"
             SelectedIndex                               = "{Binding SelectedIndex}"
@@ -46,6 +48,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-    </Grid>
+    </StackPanel>
 
 </Window>
