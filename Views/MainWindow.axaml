@@ -12,10 +12,19 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Grid>
+    <Window.Styles>
+        <Style Selector = "Button.CornerButton">
+            <Setter Property = "CornerRadius" Value = "10" />
+            <Setter Property = "Height" Value = "50" />
+            <Setter Property = "Width" Value = "50" />   
+            <Setter Property = "Margin" Value = "0" />
+        </Style>
+    </Window.Styles>
 
+    <Grid>
         <ListBox
             Items                                       = "{Binding ColorBrushList}"
+            SelectedIndex                               = "{Binding SelectedIndex}"
             Width                                       = "500"
             HorizontalAlignment                         = "Center"
             VerticalAlignment                           = "Center"
@@ -25,23 +34,18 @@
             ScrollViewer.HorizontalScrollBarVisibility  = "Auto">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation = "Horizontal"/>
+                    <VirtualizingStackPanel Orientation = "Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation = "Horizontal">
-                        <Button
-                            Background  = "{Binding}"
-                            Height      = "50" 
-                            Width       = "50">
-                        </Button>
-                     </StackPanel>                      
+                <DataTemplate>                    
+                    <Button
+                        Background  = "{Binding}"
+                        Classes     = "CornerButton">
+                    </Button>                                  
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
-
     </Grid>
 
 </Window>

@@ -20,6 +20,14 @@ namespace TestResol.ViewModels
             set => this.RaiseAndSetIfChanged(ref colorBrushList, value);
         }
 
+        private int selectedIndex;
+
+         public int SelectedIndex
+        {
+            get => selectedIndex;
+            set => this.RaiseAndSetIfChanged(ref selectedIndex, value);
+        }
+
         private IEnumerable<string> MockStringColorBrush()
         {
             var defaultBrush = new List<string>()
